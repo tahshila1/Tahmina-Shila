@@ -66,4 +66,38 @@ contactForm.addEventListener("submit", function (event) {
         submitButton.innerHTML = originalText;
     });
 
-});
+});// ================================
+// CURRENT DATE & TIME
+// ================================
+
+function updateDateTime() {
+
+    const now = new Date();
+
+    // Current Date
+    const dateOptions = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    };
+
+    document.getElementById("currentDate").textContent =
+        now.toLocaleDateString("en-US", dateOptions);
+
+    // Current Time
+    document.getElementById("currentTime").textContent =
+        now.toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        });
+
+    // Current Year
+    document.getElementById("currentYear").textContent =
+        now.getFullYear();
+}
+
+updateDateTime();
+
+setInterval(updateDateTime, 1000);
